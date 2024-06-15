@@ -1,4 +1,7 @@
 <div class="logo">
+    <img src="" alt="">
+</div>
+{{-- <div class="logo">
 
 	<?xml version="1.0" encoding="iso-8859-1"?>
 	<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -101,4 +104,4 @@
 	<g>
 	</g>
 	</svg>
-</div>
+</div> --}}

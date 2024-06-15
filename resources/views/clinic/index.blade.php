@@ -5,7 +5,7 @@
 
 @section('content')
 
-<h1 class="homepage_heading">Welcome to our Clinic</h1>
+<h1 class="homepage_heading">Welcome to Dogman Pet World</h1>
 <p>Start typing a pet's name below and then click on the search button</p>
 
 {{-- SEARCH FUNCTIONALITY IN ALL OUR PAGES --}}
@@ -20,5 +20,5 @@
        </form>
    </div>
 
-   
+
 @endsection
