@@ -1,5 +1,5 @@
 <div class="logo">
-    <img src="" alt="">
+    {{-- <img src="{{url('/assets/images/dogmanpet.jpeg')}}" width="100px" alt=""> --}}
 </div>
 {{-- <div class="logo">
 
