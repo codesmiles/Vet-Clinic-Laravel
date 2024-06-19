@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\views\LandingPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/api', 'ClinicAPI@index')->name('database-api');
+// Route::get('/api', 'ClinicAPI@index')->name('database-api');
 
 Route::get('/', 'clientController@index')->name('home');
 
@@ -40,6 +41,9 @@ Route::get('/pet/{id}/edit', 'PetController@editPet')->name('pet-edit');
 Route::put('/pet/{id}', 'PetController@updatePet')->name('pet-update');
 Route::put('/pet/delete/{id}', 'PetController@deletePet')->name('pet-delete');
 
+
+// landing pages
+Route::get('/home','views\LandingPage@show')->name('landing-page');
 
 //ADDITIONAL ROUTES FOR HEADING/NAVBAR
 
