@@ -22,8 +22,8 @@ class CreateEmployeesTable extends Migration
             $table->string('email')->unique();
             $table->string('phone_number')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->dateTime("start_date")->default(now()->toDateTimeString());
             $table->string("employee_id")->default(generatePlayerId());
+            $table->dateTime("start_date")->default(now()->toDateTimeString());
             $table->enum("role", ["admin", "employee",])->default("employee");
 
             $table->timestamps();

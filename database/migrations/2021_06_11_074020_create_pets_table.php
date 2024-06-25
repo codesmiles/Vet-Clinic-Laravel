@@ -17,10 +17,16 @@ class CreatePetsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('breed');
+            $table->string('photo')->nullable();
+            $table->char('microchip_number', 10);
+            $table->unsignedInteger('age')->nullable();
+            $table->dateTime('date_of_birth')->nullable();
             $table->unsignedInteger('weight')->nullable();
-            $table->unsignedInteger('age');
-            $table->string('photo');
-            $table->unsignedInteger('client_id');
+            $table->dateTime('date_of_adoption')->nullable();
+            $table->enum('sex', ["male", "female", "harmaphrodite"]);
+            $table->enum('status', ["alive", "dead", "neutered"])->default("alive");
+            $table->enum('retainership_plan', ["bronze", "silver","gold", "custom"])->nullable();
+            $table->enum('genus', ["canine", "feline", "caprine", "ovine", "equine", "bovine", "pisces", "oryctolagus"]);
             $table->timestamps();
         });
     }

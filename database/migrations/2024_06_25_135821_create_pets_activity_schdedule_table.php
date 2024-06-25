@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClientPetTable extends Migration
+class CreatePetsActivitySchdeduleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateClientPetTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_pet', function (Blueprint $table) {
+        Schema::create('pets_activity_schdedule', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('client_id');
-            $table->unsignedInteger('file_number');
-            $table->unsignedInteger('dpetworld_number');
-            $table->unsignedInteger('pet_id');
+            $table->dateTime("next_visit");
+            $table->unsignedInteger("pet_id");
+            $table->unsignedInteger("employee_id");
+            $table->string("treatment_or_vaccinations");
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateClientPetTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_pet');
+        Schema::dropIfExists('pets_activity_schdedule');
     }
 }
