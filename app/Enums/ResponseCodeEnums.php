@@ -20,6 +20,15 @@ enum ResponseCodeEnums: int
     case USER_REQUEST_ERROR = 2001;
     case USER_REQUEST_SUCCESSFUL = 2002;
 
+    /*
+    |--------------------------------------------------------------------------
+    | Auth Response
+    |--------------------------------------------------------------------------
+    */
+    case AUTH_REQUEST_ERROR = 3001;
+    case AUTH_REQUEST_SUCCESSFUL = 3002;
+    case AUTH_REQUEST_VALIDATION_ERROR = 3003;
+
 
 
     public function getCode()
@@ -45,6 +54,7 @@ enum ResponseCodeEnums: int
                 'response_code' => $this,
                 'message' => $this->name
             ],
+
             /*
             |--------------------------------------------------------------------------
             | User Response
@@ -56,6 +66,26 @@ enum ResponseCodeEnums: int
                 'message' => $this->name
             ],
             self::USER_REQUEST_SUCCESSFUL => [
+                'status' => 200,
+                'response_code' => $this,
+                'message' => $this->name
+            ],
+            /*
+            |--------------------------------------------------------------------------
+            | Auth Response
+            |--------------------------------------------------------------------------
+            */
+            self::AUTH_REQUEST_ERROR => [
+                'status' => 400,
+                'response_code' => $this,
+                'message' => $this->name
+            ],
+            self::AUTH_REQUEST_VALIDATION_ERROR => [
+                'status' => 400,
+                'response_code' => $this,
+                'message' => $this->name
+            ],
+            self::AUTH_REQUEST_SUCCESSFUL => [
                 'status' => 200,
                 'response_code' => $this,
                 'message' => $this->name
