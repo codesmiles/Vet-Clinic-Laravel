@@ -16,17 +16,11 @@ class CreateEmployeesTable extends Migration
 
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('address');
-            $table->string('password');
-            $table->string('full_name');
-            $table->string('email')->unique();
-            $table->string('phone_number')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string("employee_id")->default(generatePlayerId());
-            $table->dateTime("start_date")->default(now()->toDateTimeString());
-            $table->enum("role", ["admin", "employee",])->default("employee");
-
             $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+            $table->string("employee_id")->default(generateEmployeeId());
+            $table->dateTime("employment_date")->default(now()->toDateTimeString());
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

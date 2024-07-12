@@ -15,11 +15,13 @@ class CreatePetsActivitySchdeduleTable extends Migration
     {
         Schema::create('pets_activity_schdedule', function (Blueprint $table) {
             $table->id();
-            $table->dateTime("next_visit");
-            $table->unsignedInteger("pet_id");
-            $table->unsignedInteger("employee_id");
+            $table->dateTime("next_visit_date")->nullable();
+            $table->unsignedBigInteger("pet_id");
+            $table->foreign("pet_id")->references('id')->on("pets")->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger("employee_id");
+            $table->foreign("employee_id")->references('id')->on("employees")->onDelete('cascade')->onUpdate('cascade');
             $table->string("treatment_or_vaccinations");
-            $table->timestamps();
+            $table->timestamps(); // will work as the current date
         });
     }
 

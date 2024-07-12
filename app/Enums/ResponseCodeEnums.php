@@ -3,13 +3,23 @@ namespace App\Enums;
 
 enum ResponseCodeEnums: int
 {
+
     /*
     |--------------------------------------------------------------------------
-    | Transaction
+    | Employee
     |--------------------------------------------------------------------------
     */
     case EMPLOYEE_NOT_FOUND = 1000;
     case EMPLOYEE_QUERY_ERROR = 1001;
+
+    /*
+    |--------------------------------------------------------------------------
+    | User Response
+    |--------------------------------------------------------------------------
+    */
+    case USER_REQUEST_ERROR = 2001;
+    case USER_REQUEST_SUCCESSFUL = 2002;
+
 
 
     public function getCode()
@@ -22,7 +32,7 @@ enum ResponseCodeEnums: int
         return match ($this) {
             /*
             |--------------------------------------------------------------------------
-            | Transaction Response
+            | Employee Response
             |--------------------------------------------------------------------------
             */
             self::EMPLOYEE_NOT_FOUND => [
@@ -32,6 +42,21 @@ enum ResponseCodeEnums: int
             ],
             self::EMPLOYEE_QUERY_ERROR => [
                 'status' => 400,
+                'response_code' => $this,
+                'message' => $this->name
+            ],
+            /*
+            |--------------------------------------------------------------------------
+            | User Response
+            |--------------------------------------------------------------------------
+            */
+            self::USER_REQUEST_ERROR => [
+                'status' => 400,
+                'response_code' => $this,
+                'message' => $this->name
+            ],
+            self::USER_REQUEST_SUCCESSFUL => [
+                'status' => 200,
                 'response_code' => $this,
                 'message' => $this->name
             ],
